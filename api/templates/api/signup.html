@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load staticfiles%}
+
+<title> {% block title%}  signup  {% endblock %} </title>
+
+{% block body %}
+ 
+<body>
+	
+    <div class="form-area1">
+		<div class="img-area">
+				<img src="{% static 'api/img/bird.png'%}">
+		</div>
+		<form action="/signup" method="post">
+			{% csrf_token %}
+			{{form.as_p}}
+			
+		<h2> REGISTER HERE </h2>
+		<label for="signup"> Username:</label>
+		<input id="signup" type="text" name="username" value="">
+		<label for="signup email"> Email Address:</label>
+		<input id="signup" type="email" value="">
+		<label for="password1"> Set password:</label>
+		<input id='password' type="password" >
+		<label for="password1"> Repeat password:</label>
+		<input id="password1" type="password">
+	    <button type="submit">Signup</button>
+<!---	<a href='login' class='btn2'>
+            <span class='btn-text2' id="signup"> Sign In</span> -->
+			
+		</form>
+    </div>	
+</body>
+	{% endblock%}
